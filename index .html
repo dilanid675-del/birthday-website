@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div id="floating-hearts"></div>
+
+    <!-- Easter Eggs (Hidden Hearts) -->
+    <div id="easter-eggs"></div>
+
+    <!-- Background Music Control -->
+    <button id="music-toggle" class="music-btn hidden">
+        <span id="music-icon">🔇</span>
+    </button>
+    <audio id="background-music" loop>
+        <!-- ADD YOUR BACKGROUND MUSIC HERE -->
+        <!-- <source src="audio/background.mp3" type="audio/mpeg"> -->
+    </audio>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- 1. WELCOME SECTION -->
+        <section class="welcome-section">
+            <div class="welcome-content fade-in-up">
+                <h1 class="main-title">Happy Birthday My Love ❤️</h1>
+                <p class="subtitle">You are my everything 💖</p>
+            </div>
+        </section>
+
+        <!-- 2. PHOTO GALLERY -->
+        <section class="section">
+            <h2 class="section-title">Our Beautiful Memories 💕</h2>
+            <div class="photo-gallery" id="photo-gallery">
+                <!-- CUSTOMIZE: Replace these image URLs with your own photos -->
+                <div class="photo-item">
+                    <img src="C:\Users\dilan\OneDrive\Desktop\love website\phothos\WhatsApp Image 2026-03-20 at 11.24.04 PM.jpeg" alt="Memory 1">
+                </div>
+                <div class="photo-item">
+                    <img src="C:\Users\dilan\OneDrive\Desktop\love website\phothos\WhatsApp Image 2026-03-20 at 11.24.05 PM (1).jpeg" alt="Memory 2">
+                </div>
+                <div class="photo-item">
+                    <img src="C:\Users\dilan\OneDrive\Desktop\love website\phothos\WhatsApp Image 2026-03-20 at 11.24.06 PM.jpeg" alt="Memory 3">
+                </div>
+                <div class="photo-item">
+                    <img src="C:\Users\dilan\OneDrive\Desktop\love website\phothos\WhatsApp Image 2026-03-20 at 11.24.30 PM (1).jpeg" alt="Memory 4">
+                </div>
+                <div class="photo-item">
+                    <img src="C:\Users\dilan\OneDrive\Desktop\love website\phothos\WhatsApp Image 2026-03-20 at 11.24.10 PM (2).jpeg" alt="Memory 5">
+                </div>
+                <div class="photo-item">
+                    <img src="C:\Users\dilan\OneDrive\Desktop\love website\phothos\WhatsApp Image 2026-03-20 at 11.24.30 PM.jpeg" alt="Memory 6">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. VIDEO SECTION -->
+        <section class="section">
+            <h2 class="section-title">Our Love Story 🎥</h2>
+            <div class="video-container">
+                <!-- CUSTOMIZE: For YouTube video, use iframe below -->
+                <!-- For local video, replace iframe with <video> tag -->
+                <iframe 
+                    src="C:\Users\dilan\OneDrive\Desktop\love website\phothos\WhatsApp Video 2026-03-20 at 11.30.52 PM.mp4" 
+                    title="Our Love Story"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <!-- For local video, use this instead:
+                <video controls>
+                    <source src="videos/our-story.mp4" type="video/mp4">
+                </video>
+                -->
+            </div>
+            <p class="hint">💡 To add your own video: Replace the YouTube URL or use a local video file</p>
+        </section>
+
+        <!-- 4. OPEN WHEN LETTERS -->
+        <section class="section">
+            <h2 class="section-title">Letters For You 💌</h2>
+            <div class="letters-grid">
+                <button class="letter-btn letter-blue" onclick="openLetter(0)">
+                    Open when you are sad 😢
+                </button>
+                <button class="letter-btn letter-pink" onclick="openLetter(1)">
+                    Open when you miss me 💕
+                </button>
+                <button class="letter-btn letter-purple" onclick="openLetter(2)">
+                    Open when you can't sleep 🌙
+                </button>
+            </div>
+        </section>
+
+        <!-- Letter Modal -->
+        <div id="letter-modal" class="modal">
+            <div class="modal-content letter-content">
+                <span class="close-btn" onclick="closeModal('letter-modal')">&times;</span>
+                <h3 id="letter-title"></h3>
+                <p id="letter-message"></p>
+            </div>
+        </div>
+
+        <!-- 5. SECRET VIDEO REVEAL -->
+        <section class="section">
+            <h2 class="section-title">Your Secret Surprise 🎁</h2>
+            <div class="secret-video-wrapper">
+                <div id="secret-video" class="video-container blurred">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Secret Surprise"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <button id="unlock-btn" class="unlock-btn" onclick="unlockVideo()">
+                    🔐 Unlock your surprise 🔐
+                </button>
+                <p id="unlock-message" class="unlock-message hidden">🔓 Unlocked! Enjoy your surprise 💖</p>
+            </div>
+        </section>
+
+        <!-- 6. LOVE QUIZ -->
+        <section class="section">
+            <h2 class="section-title">How Well Do You Know Us? 💘</h2>
+            <div class="quiz-container" id="quiz-container">
+                <div class="quiz-progress">
+                    Question <span id="quiz-current">1</span> of <span id="quiz-total">5</span>
+                </div>
+                <h3 id="quiz-question" class="quiz-question"></h3>
+                <div id="quiz-options" class="quiz-options"></div>
+                <div id="quiz-result" class="quiz-result hidden"></div>
+                <button id="quiz-next" class="btn-primary hidden" onclick="nextQuestion()">Next Question</button>
+            </div>
+        </section>
+
+        <!-- 7. FIND THE HEART GAME -->
+        <section class="section">
+            <h2 class="section-title">Find My Heart 💖</h2>
+            <div class="game-container">
+                <p class="game-instruction">Click on the heart to win! 💕</p>
+                <div id="game-grid" class="game-grid"></div>
+                <p id="game-message" class="game-message"></p>
+            </div>
+        </section>
+
+        <!-- 8. LOVE TIMELINE -->
+        <section class="section">
+            <h2 class="section-title">Our Love Journey 💫</h2>
+            <div class="timeline">
+                <!-- CUSTOMIZE: Edit these timeline events -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">❤️</div>
+                    <div class="timeline-content timeline-pink">
+                        <h3>First Meet</h3>
+                        <p class="timeline-date">september 20, 2020</p>
+                        <p>The day our eyes met and my world changed forever. I knew right then you were special.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">💬</div>
+                    <div class="timeline-content timeline-purple">
+                        <h3>First Chat</h3>
+                        <p class="timeline-date">January 20, 2023</p>
+                        <p>We talked for hours and hours. Time flew by, and I never wanted the conversation to end.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">😢</div>
+                    <div class="timeline-content timeline-blue">
+                        <h3>First Fight</h3>
+                        <p class="timeline-date">March 5, 2023</p>
+                        <p>Even our fights made us stronger. We learned that love means understanding and forgiveness.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">⭐</div>
+                    <div class="timeline-content timeline-orange">
+                        <h3>Best Memory</h3>
+                        <p class="timeline-date">June 12, 2023</p>
+                        <p>That magical sunset on the beach where we danced under the stars. Perfect doesn't exist, but that moment came close.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. VOICE MESSAGE -->
+        <section class="section">
+            <h2 class="section-title">A Message Just For You 🎤</h2>
+            <div class="voice-message-container">
+                <div class="audio-icon">🔊</div>
+                <button id="voice-btn" class="btn-primary" onclick="toggleVoice()">
+                    <span id="voice-icon">▶️</span>
+                    <span id="voice-text">Listen to me ❤️</span>
+                </button>
+                <audio id="voice-audio">
+                    <!-- ADD YOUR VOICE MESSAGE HERE -->
+                    <!-- <source src="audio/voice-message.mp3" type="audio/mpeg"> -->
+                </audio>
+                <p class="hint">💡 To add your voice message: Upload an audio file and update the src above</p>
+            </div>
+        </section>
+
+        <!-- 10. SURPRISE BUTTON -->
+        <section class="section text-center">
+            <button class="surprise-btn" onclick="showSurprise()">
+                🎁 Click me 🎁
+            </button>
+        </section>
+
+        <!-- Surprise Modal -->
+        <div id="surprise-modal" class="modal">
+            <div class="modal-content surprise-content">
+                <span class="close-btn" onclick="closeModal('surprise-modal')">&times;</span>
+                <div class="surprise-icon">🎁</div>
+                <p class="surprise-text">Happy Birthday my love ❤️ You are my forever 💖</p>
+            </div>
+        </div>
+
+        <!-- 11. FAKE PROPOSAL -->
+        <section class="section">
+            <h2 class="section-title">A Special Question 💍</h2>
+            <div class="proposal-container" id="proposal-container">
+                <h3 class="proposal-question">Will you stay forever with me? 💍</h3>
+                <div class="proposal-buttons">
+                    <button class="btn-yes" onclick="handleProposalYes()">YES 💖</button>
+                    <button class="btn-always" onclick="handleProposalAlways()">ALWAYS 💍</button>
+                    <button id="btn-no" class="btn-no" onmouseenter="moveNoButton()" onclick="handleProposalNo()">NO 😜</button>
+                </div>
+                <p id="proposal-message" class="proposal-message"></p>
+            </div>
+        </section>
+
+        <!-- 12. FINAL SECTION -->
+        <section class="welcome-section">
+            <div class="final-content fade-in-up">
+                <div class="final-icon">💫</div>
+                <h2 class="final-title">I love you forever</h2>
+                <div class="final-heart">❤️</div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Confetti Canvas (for quiz celebrations) -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
